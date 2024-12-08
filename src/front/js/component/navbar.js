@@ -27,7 +27,7 @@ export const Navbar = () => {
           className="btn btn-outline-primary"
           onClick={handleButtonClick} // Ejecutar la acción al hacer clic
         >
-          {store.isAuthenticated ? "Logout" : "Check"}
+          {store.isAuthenticated ? "Logout" : "Login"}
         </button>
       </div>
     </nav>
