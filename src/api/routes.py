@@ -24,7 +24,7 @@ def handle_hello():
 
 #Singup
 
-@api.route('/singup', methods=['POST'])
+@api.route('/signup', methods=['POST'])
 def register():
 
     body = request.json
@@ -35,6 +35,7 @@ def register():
     existing_user = User.query.filter ((User.email == email)).first()
 
     if existing_user:
+
         return jsonify ({"msg": "User alredy exist"})
 
     new_user = User(name, email, password)

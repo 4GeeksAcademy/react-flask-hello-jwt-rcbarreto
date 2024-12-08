@@ -79,4 +79,4 @@ if __name__ == '__main__':
     app.run(host='0.0.0.0', port=PORT, debug=True)
 
 
-CORS(app, resources={r"/api/*": {"origins": "http://example.com"}})
+CORS(app, origins="*", supports_credentials=True)
