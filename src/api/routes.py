@@ -5,7 +5,7 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from flask_jwt_extended import create_acces_token, get_jwt_identity, jwt_required
+from flask_jwt_extended import create_access_token, get_jwt_identity, jwt_required
 
 api = Blueprint('api', __name__)
 
@@ -63,10 +63,10 @@ def login():
     if user.password != password:
         return jsonify ({"msg": "Bad email or password"}), 401
     
-    accse_token = create_acces_token(identity=email)
+    accse_token = create_access_token(identity=email)
     return jsonify (accse_roken=accse_token), 201
 
-@api.route('/protected', methods=['POST'])
+@api.route('/protected', methods=['GET'])
 @jwt_required()
 def protected():
         current_user = get_jwt_identity()
